@@ -1,0 +1,102 @@
+<div class="row" id="editor_header_row">
+	{{#if message}}
+		<script>
+			$.bootstrapGrowl("{{message}}", {type: '{{message_type}}',offset: {from: 'top', amount: 10},align: 'center',width: 400,delay: 2000});
+		</script>
+	{{/if}}
+	<div class="col-lg-12">
+		<h1 class="page-header">Editor</h1>
+		<ol class="breadcrumb">
+		  <li><a href="/admin/posts">Home</a></li>
+		  {{#if post_id}}
+			<li><a href="/admin/preview/{{post_id}}">Preview</a></li>
+		  {{/if}}
+		  <li class="active">Editor</li>
+		</ol>
+	</div>
+</div>
+<div class="row">
+	<div id="wrap_post_body" class="col-lg-10 col-md-10">
+		<form role="form" action="/admin/savepost" method="post" name="frm_editor" id="frm_editor">
+			<div class="chat-panel panel panel-default">
+				<div class="panel-heading">
+					Post
+					<div class="btn-group pull-right" style="margin-top: -4px;">
+						<input class="form-control input-sm" id="frm_datetimepicker" size="15" name="frm_datetimepicker" type="text" value="{{post_date}}" />
+					</div>
+					<div id="editor_cog" class="btn-group pull-right" style="margin-top: -4px;">
+						<button type="button" class="btn btn-default dropdown-toggle glyphicon glyphicon-cog" data-toggle="dropdown">
+						</button>
+						<ul class="dropdown-menu pull-right" style="min-width: 130px;" role="menu">
+							<li>
+								<div class="center-block cog_menu_item">
+									<a href="../../{{post_title_clean}}" target="_blank" class="btn btn-info btn-sm" style="width: 100%"><i class="fa fa-search"></i>&nbsp;Preview post</a>
+								</div>
+							</li>
+							<li>
+								<div class="center-block cog_menu_item">
+									<button type="button" onclick="confirm_delete('/admin/deletepost/{{post_id}}');" class="btn btn-danger btn-sm" style="width: 100%;"><i class="fa fa-trash"></i> &nbsp;Delete post</button>
+								</div>
+							</li>
+							<li>
+								<div class="center-block cog_menu_item">
+									<div class="btn btn-warning btn-sm center-block">
+										<i class="fa fa-magnet"></i> &nbsp;Static post &nbsp;<input type="checkbox" name="frm_static_page" {{#ifCond post_static_page "==" "on"}}checked{{/ifCond}} >
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="btn-group pull-right" style="margin-top: -3px;">
+					  <button id="status_dropdown" type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+						<span id="status_text"></span>
+					  </button>
+					  <ul class="dropdown-menu" role="menu">
+					    <li><a id="draft_status" style="color: #D9534F;" href="#">Draft</a></li>
+					    <li><a id="published_status" style="color: #5CB85C;" href="#">Published</a></li>
+					  </ul>
+					</div>
+				</div>
+				<div id="editor_body" class="panel-body">
+					<ul class="chat">
+						<li><input type="text" id="frm_post_title" name="frm_post_title" class="form-control" placeholder="Post title" value="{{post_title}}">
+						</li>
+						<li id="editor_body_li">
+							<textarea class="form-control" id="frm_post_body" name="frm_post_body" placeholder="Post body">{{post_body}}</textarea>
+						</li>
+					</ul>
+				</div>
+				<div class="panel-footer">
+					<div class="input-group">
+						<input id="frm_post_tags" name="frm_post_tags" type="text" class="form-control input-sm" value="{{post_tags}}" placeholder="Type your message here..." />
+						<span class="input-group-btn">
+							<button class="btn btn-success btn-sm">Save</button>
+						</span>
+					</div>
+				</div>
+			</div>
+			<input type="hidden" name="frm_save_type" value="{{header}}">
+			<input type="hidden" name="frm_post_id" value="{{post_id}}">
+			<input type="hidden" name="frm_db_id" value="{{db_id}}">
+			<input type="hidden" name="frm_post_status" id="frm_post_status" value="{{post_status}}">
+	</div>
+	<div id="seo-options" class="col-lg-2 col-md-2 seo-options hidden-xs hidden-sm">
+			<h3 class="seo-title">SEO Options</h3>
+			<div class="form-group">
+				<label for="frm_meta_title">SEO page title:</label>
+				<textarea id="frm_meta_title" name="frm_meta_title" class="form-control" rows="3">{{post_meta_title}}</textarea>
+				<p class="help-block">Enter targeted SEO title if different from the post title. Try keep under 55 characters</p>
+			</div>
+			<div class="form-group">
+				<label for="frm_meta_description">Meta description:</label>
+				<textarea id="frm_meta_description" name="frm_meta_description" class="form-control" rows="3">{{post_meta_description}}</textarea>
+				<p class="help-block">This will populate the meta description. Try keep under 155 characters. See <a href="https://moz.com/learn/seo/meta-description">more</a></p>
+			</div>
+			<div class="form-group">
+				<label for="frm_meta_image">Meta image:</label>
+				<textarea id="frm_meta_image" name="frm_meta_image" class="form-control" rows="3">{{post_meta_image}}</textarea>
+				<p class="help-block">Full URL to an image that will show when sharing the URL on social media.</p>
+			</div>
+	</div>
+	</form>
+</div>

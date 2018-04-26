@@ -1,0 +1,40 @@
+<div class="row">
+	<div class="col-md-7 col-md-offset-1 col-xs-12 mt-10">
+		<h4 class="text-center"><span class="text-muted">{{custom_date this.post_date "dddd, MMMM Do, YYYY"}}</span>
+			{{#ifCond is_logged_on "===" "true"}}
+				<a href="/admin/editor/{{this.post_id}}" class="glyphicon glyphicon-pencil edit-pencil"></a>
+			{{/ifCond}}
+		</h4>
+		<h2 class="text-center">{{post_title}}</h2><br/>
+		<div class="row">
+			<div class="col-md-8 col-xs-12">
+				<p>{{{post_body}}}</p>
+				<p class="pull-left" style="padding-top:20px;">
+					{{#each this.post_tags}}
+						<span class="tags"><a href="/tag/{{tag_encode this}}">{{this}}</a></span>
+						<span class="spacer">|</span>
+					{{/each}}
+				</p>
+				
+			</div>
+		</div>
+	</div>
+	<div class="col-md-2" style="width:20%;margin-top:30px;">
+		<div class="thumbnail">
+		<img src="themes/default/images/admin.png" class="">
+		<div class="caption">
+			<h4>Jelena Popovic</h4>
+			<p class="sub">web developer</p>
+			<p class="sub-text">Caffeine-driven organism. 99% unicorn. Analogue by birth, digital by design.</p> <br><!--<a href="#" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a>-->
+			<!--	<a href="#" class="btn btn-default btn-xs" role="button">More Info</a> -->
+			<p class="footer-sharelinks">
+			<a class="sharelink" href="{{config.blog_hostname}}/rss/feed.xml"><i class="fa fa-rss fa-lg"></i></a>
+			<a class="sharelink" href="https://www.facebook.com/sharer/sharer.php?u={{config.blog_hostname}}"><i class="fa fa-facebook fa-lg" ></i></a>
+			<a class="sharelink" href="https://twitter.com/home?status={{config.blog_hostname}}"><i class="fa fa-twitter fa-lg"></i></a>
+			<a class="sharelink" href="https://plus.google.com/share?url={{config.blog_hostname}}"><i class="fa fa-google-plus fa-lg"></i></a>
+		</p>
+
+			</div>
+		</div>
+</div>
+<hr/>

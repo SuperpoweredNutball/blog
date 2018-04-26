@@ -1,0 +1,32 @@
+<div class="col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" style="padding-top: 100px">
+	{{#if message}}
+		<div class="alert alert-{{ message_type}} alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			{{message}}
+		</div>
+	{{/if}}
+
+	<form class="form-signin" action="action_setup" method="post" role="form">
+		<h2 class="form-signin-heading text-center">Antlers - Setup</h2>
+		<div class="form-group">
+			<label for="blog_title">Blog title</label>
+			<input type="text" name="blog_title" id="blog_title" class="form-control" placeholder="Blog title" required autofocus>
+			<p class="help-block">The title of the blog</p>
+		</div>
+		<div class="form-group">
+			<label for="full_name">Full name</label>
+			<input type="text" name="full_name" id="full_name" class="form-control" placeholder="Full name" required autofocus>
+			<p class="help-block">The name associated with your published posts</p>
+		</div>
+		<div class="form-group">
+			<label for="email_address">Email address</label>
+			<input type="email" name="email_address" id="email_address" class="form-control" placeholder="Email address" required>
+			<p class="help-block">Your email address which will be used to sign in</p>
+		</div>
+		<div class="form-group">
+			 <label for="password">Password</label>
+			<input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+		</div>
+		<button class="btn btn-lg btn-success btn-block" type="submit">Complete setup</button>
+	</form>
+</div>

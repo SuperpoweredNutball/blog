@@ -1,0 +1,56 @@
+<div class="row" id="editor_header_row">
+	{{#if message}}
+		<script> 
+			$.bootstrapGrowl("{{message}}", {type: '{{message_type}}',offset: {from: 'top', amount: 10},align: 'center',width: 400,delay: 2000});
+		</script>
+	{{/if}}
+	<div class="col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+		<h1 class="page-header">Users</h1>
+	</div>	
+</div>
+<div class="row">
+	<div class="col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<span><b>Current users</b></span>
+			</div>
+			<div class="panel-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Role</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each users}}
+							<tr>
+								<td>
+									{{this.user_name}}
+								</td>
+								<td>
+									{{this.user_email}}
+								</td>
+								<td>
+									{{#ifCond this.is_admin '===' true}}
+										Admin
+									{{/ifCond}}
+									{{#ifCond this.is_admin '!=' true}}
+										User
+									{{/ifCond}}
+								</td>
+								<td>
+									{{#ifCond this.is_admin '!=' true}}
+										<a href="/admin/user/edit/{{this._id}}"><i class="fa fa-pencil"></i> Edit</a>
+									{{/ifCond}}
+								</td>
+							</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

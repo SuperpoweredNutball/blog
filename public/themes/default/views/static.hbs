@@ -1,0 +1,22 @@
+<div class="row">    
+	<div class="col-md-12">
+		<div class="col-md-12">
+			<h2 class="text-center">
+				{{post_title}}
+				{{#ifCond is_logged_on "===" "true"}} 
+					<a href="/admin/editor/{{this.post_id}}" class="glyphicon glyphicon-pencil edit-pencil"></a>
+				{{/ifCond}}	
+			</h2>
+			<div class="row">
+				<p>{{{post_body}}}</p><br/>
+				<p class="pull-left">
+					{{#each this.post_tags}}
+						<span class="tags"><a href="/tag/{{this}}">{{this}}</a></span>
+						<span class="spacer">|</span> 
+					{{/each}}
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<hr/>

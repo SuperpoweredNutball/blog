@@ -1,0 +1,47 @@
+{
+  "name": "antlers",
+  "version": "1.0.9",
+  "private": false,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "archiver": "^0.14.3",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "~1.0.0",
+    "compression": "^1.5.0",
+    "cookie-parser": "~1.0.1",
+    "debug": "~0.7.4",
+    "ejs": "~0.8.5",
+    "ejs-locals": "~1.0.2",
+    "express": "~4.0.0",
+    "express-flash": "0.0.2",
+    "express-handlebars": "^1.0.1",
+    "express-session": "~1.1.0",
+    "marked": "~0.3.2",
+    "moment": "~2.6.0",
+    "morgan": "~1.0.0",
+    "multer": "^0.1.0",
+    "nedb": "^0.11.0",
+    "nedb-session-store": "^1.1.1",
+    "serve-favicon": "^2.2.0",
+    "string": "^3.0.0"
+  },
+  "description": "Jelena's Blog",
+  "main": "app.js",
+  "devDependencies": {},
+  "keywords": [
+    "blog",
+    "markdown",
+    "express",
+    "blogging",
+    "platform",
+    "nodejs"
+  ],
+  "engines": {
+    "node": "8.11.1"
+  },
+  "author": "Jelena Popovic",
+  "license": "ISC"
+  
+}

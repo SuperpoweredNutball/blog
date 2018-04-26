@@ -1,0 +1,77 @@
+<div class="row" id="dash_header_row">
+	{{#if message}}
+		<script> 
+			$.bootstrapGrowl("{{message}}", {type: '{{message_type}}',offset: {from: 'top', amount: 10},align: 'center',width: 400,delay: 2000});
+		</script>
+	{{/if}}	
+	<div class="col-lg-12">
+		<h1 class="page-header">Post list</h1>
+	</div>
+</div>
+<div class="row">
+	<div id="dashboard_wrapper" class="col-lg-8 col-md-8">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<p>Posts</p>
+			</div>
+			<div id="dashboard_body" class="panel-body">
+				<table class="table table-hover" style="table-layout: fixed;">
+					{{#each posts}}
+						<tr class="dashboard_list" href="/admin/preview/{{this.post_id}}">
+							<td class="col-xs-10 pull-left" style="overflow: hidden; text-overflow: clip; white-space: nowrap;">
+								{{this.post_title}}
+							</td>
+							<td class="col-xs-2 pull-right">
+								<span id="dashboard_list_date" style="padding-left: 5px;" class="pull-right text-muted"><small>{{format_date this.post_date "YYYY-MM-DD HH:mm"}}</small></span>
+								<span class="pull-right" style="padding-left: 5px;">
+									{{#ifCond this.post_status "==" "0"}}
+										<i class="fa fa-newspaper-o text-danger"></i>
+									{{/ifCond}}
+									{{#ifCond this.post_status "==" "1"}}
+										<i class="fa fa-newspaper-o text-success"></i>
+									{{/ifCond}}
+								</span>
+								<span class="pull-right" style="padding-left: 5px;">
+									{{#ifCond this.post_static_page "==" "on"}}
+										<i class="fa fa-magnet text-danger"></i>
+									{{/ifCond}}
+								</span>
+							</td>
+						</tr>
+					{{/each}}
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+          <div class="card text-center bg-primary text-white mb-3">
+            <div class="card-body">
+              <h3>Posts</h3>
+              <h1 class="display-4">
+                <i class="fa fa-pencil"></i> 6
+              </h1>
+              <a href="posts.html" class="btn btn-outline-light btn-sm">View</a>
+            </div>
+          </div>
+
+          <div class="card text-center bg-success text-white mb-3">
+            <div class="card-body">
+              <h3>Categories</h3>
+              <h1 class="display-4">
+                <i class="fa fa-folder-open-o"></i> 4
+              </h1>
+              <a href="categories.html" class="btn btn-outline-light btn-sm">View</a>
+            </div>
+          </div>
+
+          <div class="card text-center bg-warning text-white mb-3">
+            <div class="card-body">
+              <h3>Users</h3>
+              <h1 class="display-4">
+                <i class="fa fa-users"></i> 2
+              </h1>
+              <a href="users.html" class="btn btn-outline-light btn-sm">View</a>
+            </div>
+          </div>
+        </div>
+</div>

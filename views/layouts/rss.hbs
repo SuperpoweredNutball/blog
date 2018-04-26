@@ -1,0 +1,9 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>{{config.blog_title}}</title>
+		<link>{{config.blog_hostname}}</link>
+		<description>{{config.blog_description}}</description>
+		<atom:link href="{{config.blog_hostname}}/rss/feed.xml" rel="self" type="application/rss+xml" />
+		{{{body}}}
+	</channel>
+</rss>

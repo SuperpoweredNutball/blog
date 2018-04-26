@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		{{#if post_meta_title}}
+		<title>{{trim post_meta_title}}</title>
+		{{else}}
+		<title>{{trim post_title}}</title>
+		{{/if}}
+		{{#if post_meta_description}}
+		<meta name="description" content="{{trim post_meta_description}}">
+		{{else}}
+		<meta name="description" content="{{trim meta_description}}">
+		{{/if}}
+		<meta name="keywords" content="{{post_tags_meta}}">
+		<meta name="robots" content="index,follow">
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel='stylesheet' href='/themes/{{theme}}/css/bootstrap.min.css' />
+		<link rel='stylesheet' href='/themes/{{theme}}/css/bootstrap-theme.min.css' />
+		<link rel='stylesheet' href='/themes/{{theme}}/css/style.css' />
+		<link rel="stylesheet" href="/themes/{{theme}}/css/prettify.css">
+		<link rel="stylesheet" href='/stylesheets/font-awesome.min.css' />
+		<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' type='text/css'>
+		<link rel="shortcut icon" href="/themes/{{theme}}/favicon.ico" />
+		<!-- Open Graph meta -->
+		{{#if post_meta_title}}
+		<meta property="og:title" content="{{trim post_meta_title}}"/>
+		{{else}}
+		<meta property="og:title" content="{{trim post_title}}"/>
+		{{/if}}
+		<meta property="og:url" content="{{full_url}}"/>
+		<meta property="og:site_name" content="{{config.blog_title}}"/>
+		<meta property="og:type" content="article"/>
+		{{#if post_meta_description}}
+		<meta property="og:description" content="{{trim post_meta_description}}">
+		{{else}}
+		<meta property="og:description" content="{{trim meta_description}}">
+		{{/if}}
+		{{#if post_meta_image}}
+		<meta property="og:image" content="{{post_meta_image}}">
+		{{else}}
+		<meta property="og:image" content="{{full_url}}/themes/{{theme}}/images/default_logo.jpg">
+		{{/if}}
+		<!-- Open Graph meta -->
+	</head>
+	<body>
+		<div class="navbar header_bar">
+			<div class="fluid-container">
+				<div class="row text-center">
+					<div class="col-md-12">
+						<p class="footer-sharelinks">
+							<a class="sharelink" href="{{config.blog_hostname}}/rss/feed.xml"><i class="fa fa-rss fa-lg" ></i></a>
+							<a class="sharelink" href="https://www.facebook.com/sharer/sharer.php?u={{full_url}}"><i class="fa fa-facebook fa-lg" ></i></a>
+							<a class="sharelink" href="https://twitter.com/home?status={{full_url}}"><i class="fa fa-twitter fa-lg"></i></a>
+							<a class="sharelink" href="https://plus.google.com/share?url={{full_url}}"><i class="fa fa-google-plus fa-lg"></i></a>
+					</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="fluid-container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row post_body">
+						<div class="text-center">
+							<ul class="list-inline navigation_menu">
+								<li><a href="/">Home</a></li>
+								<li><a href="/About-me">About</a></li>
+								<li><a href="http://jelenapopovic.site/contact.html" target="_blank">Contact</a></li>
+							</ul>
+						</div>
+						{{{body}}}
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="text-center footer">
+					<p class="footer-copyright">Copyright &copy; {{current_year}} &middot; All Rights Reserved &middot; <a href="{{config.blog_hostname}}">{{config.blog_title}}</a></p>
+					<p class="footer-sharelinks">
+						<a class="sharelink" href="{{config.blog_hostname}}/rss/feed.xml"><i class="fa fa-rss fa-lg" style="color:#FF6600"></i></a>
+						<a class="sharelink" href="https://www.facebook.com/sharer/sharer.php?u={{full_url}}"><i class="fa fa-facebook fa-lg" style="color:#3B5998"></i></a>
+						<a class="sharelink" href="https://twitter.com/home?status={{full_url}}"><i class="fa fa-twitter fa-lg" style="color:#4099FF"></i></a>
+						<a class="sharelink" href="https://plus.google.com/share?url={{full_url}}"><i class="fa fa-google-plus fa-lg" style="color:#DD4B39"></i></a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="/themes/{{theme}}/js/bootstrap.min.js"></script>
+		<script src="/javascripts/bootstrap-responsive_img.js"></script>
+		<script src="/themes/{{theme}}/js/prettify.js"></script>
+		<script src="/themes/{{theme}}/js/func.js"></script>
+	</body>
+</html>

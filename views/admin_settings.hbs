@@ -1,0 +1,72 @@
+<div class="row" id="editor_header_row">
+	{{#if message}}
+		<script>
+			$.bootstrapGrowl("{{message}}", {type: '{{message_type}}',offset: {from: 'top', amount: 10},align: 'center',width: 400,delay: 2000});
+		</script>
+	{{/if}}
+	<div class="col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+		<h1 class="page-header">Settings</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<span><b>Settings</b></span>
+			</div>
+			<div class="panel-body">
+				<div class="col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+					<form role="form" method="post" action="/admin/savesettings" name="settings_form" enctype="multipart/form-data">
+						<input type="hidden" name="frm_users_id" id="frm_users_id" value="{{user.0._id}}"/>
+						<div class="form-group">
+							<label for="blog_title">Blog title</label>
+							<input type="text" class="form-control" id="blog_title" name="blog_title" value="{{config.blog_title}}" placeholder="Blog title"/>
+						</div>
+						<div class="form-group">
+							<label for="blog_description">Blog description</label>
+							<textarea class="form-control" rows="2" id="blog_description" name="blog_description">{{config.blog_description}}</textarea>
+						</div>
+						<div class="form-group">
+							<label for="blog_email">Blog email address</label>
+							<input type="email" class="form-control" id="blog_email" name="blog_email" value="{{config.blog_email}}" placeholder="Blog email address"/>
+						</div>
+						<div class="form-group">
+							<label for="blog_hostname">Blog hostname</label>
+							<input type="text" class="form-control" id="blog_hostname" name="blog_hostname" value="{{config.blog_hostname}}" placeholder="Blog hostname"/>
+							<p class="help-block">This field is used to generate sitemap URL's. <span class="text-danger"><b>Note: Domain name only and no trailing slashes</b></span></p>
+						</div>
+						<div class="form-group">
+							<label for="blog_posts_per_page">Posts per page</label>
+							<input type="number" min="1" max="50" class="form-control" id="blog_posts_per_page" name="blog_posts_per_page" value="{{config.blog_posts_per_page}}" placeholder="Blog posts per page"/>
+						</div>
+						<div class="form-group">
+							<label for="blog_pagination_links">Pagination links - limit previous and next links</label>
+							<input type="number" min="1" max="15" class="form-control" id="blog_pagination_links" name="blog_pagination_links" value="{{config.blog_pagination_links}}" placeholder="Pagination link limit"/>
+						</div>
+						<div class="form-group">
+							<label for="blog_google_analytics">Google Analytics code</label>
+							<textarea class="form-control" rows="2" id="blog_google_analytics" name="blog_google_analytics">{{config.blog_google_analytics}}</textarea>
+						</div>
+						<div class="form-group">
+							<label for="blog_theme">Blog theme</label>
+							<select class="form-control" name="blog_theme" id="blog_theme">
+							{{#each themes}}
+									<option value="{{this}}" {{#ifCond this '===' ../config.blog_theme}}selected{{/ifCond}}>{{this}}</option>
+							{{/each}}
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="blog_logo">Blog Logo</label>
+							<input type="file" name="blog_logo" value="{{config.blog_logo}}" id="blog_logo"/>
+							{{#if config.blog_logo}}
+								<img src="data:image/png;base64,{{config.blog_logo}}" width="60px" height="60px"><br/><br/>
+							{{/if}}
+							<button type="button" id="clear_logo" class="btn btn-danger btn-sm">Clear Blog Logo</button>
+						</div>
+						<button type="submit" id="save_settings" class="btn btn-success">Save</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

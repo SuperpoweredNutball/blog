@@ -1,0 +1,55 @@
+<div class="row" id="editor_header_row">
+	{{#if message}}
+		<script> 
+			$.bootstrapGrowl("{{message}}", {type: '{{message_type}}',offset: {from: 'top', amount: 10},align: 'center',width: 400,delay: 2000});
+		</script>
+	{{/if}}
+	<div class="col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+		<h1 class="page-header">Users</h1>
+	</div>	
+</div>
+<div class="row">
+	<div class="col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<span><b>{{panel_title}}</b></span>
+			</div>
+			<div class="panel-body">
+				<div class="col-md-offset-1 col-md-8 col-lg-offset-1 col-lg-8">
+					<form role="form" autocomplete="off" id="user_form" method="post" action="/admin/user/action_edit">
+						<input type="password" style="display: none;" id="password-breaker" />
+						<input type="hidden" name="frm_users_id" id="frm_users_id" value="{{user._id}}"/>
+						<input type="hidden" name="frm_return_url" value="/admin/user/edit/{{user._id}}"/>
+						<div class="form-group">
+							<label for="frm_users_name">Enter Name *</label>
+							<input type="text" class="form-control" name="frm_users_name" id="frm_users_name" value="{{user.user_name}}" placeholder="Enter Name" required>
+						</div>
+						<div class="form-group">
+							<label for="frm_email1">Enter Email *</label>
+							<input type="email" class="form-control" id="frm_email1" name="frm_email1" value="{{user.user_email}}" placeholder="Enter Email" required>
+						</div>			
+						<div class="form-group">
+							<label for="frm_email2">Confirm Email *</label>
+							<input type="email" class="form-control" id="frm_email2" name="frm_email2" value="{{user.user_email}}" placeholder="Confirm Email" required>
+						</div>	
+						<div class="form-group">
+							<label for="frm_password">Password</label>
+							<input type="password" name="frm_password" id="frm_password" class="form-control" required>
+						</div>						
+						<div class="form-group">
+							<label for="frm_password">Confirm Password</label>
+							<input type="password" name="frm_password_confirm" id="frm_password_confirm" class="form-control" required>
+						</div>
+						<p>Role: {{user.is_admin}} </p>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="frm_is_admin" id="frm_is_admin"> Is admin?
+							</label>
+						</div>	
+						<button type="submit" id="save_settings" class="btn btn-success">Save user</button>				
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+{{#each posts}}
+    <item>
+        {{#if this.post_meta_title}}
+			<title>{{this.post_meta_title}}</title>
+		{{else}}
+			<title>{{this.post_title}}</title>
+		{{/if}}
+
+        <link>{{../config.blog_hostname}}/{{this.post_title_clean}}</link>
+
+        {{#if this.post_meta_description}}
+            <description>{{this.post_meta_description}}</description>
+		{{else}}
+            <description>{{trim_and_strip 255 this.post_body}}</description>
+		{{/if}}
+
+        <guid>{{../config.blog_hostname}}/{{this.post_title_clean}}</guid>
+        <pubDate>{{custom_date this.post_date 'ddd, DD MMM YYYY HH:mm:ss ZZ'}}</pubDate>
+    </item>
+{{/each}}

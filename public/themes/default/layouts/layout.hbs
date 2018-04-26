@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{{#if config.blog_title}}
+			<title>{{config.blog_title}}</title>
+		{{else}}
+			<title>Antlers blog</title>
+		{{/if}}
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="{{config.blog_description}}">
+		<meta name="keywords" content="{{post_tags_meta}}">
+		<meta name="robots" content="index,follow">
+		<meta charset="UTF-8">
+		<link rel='stylesheet' href='/themes/{{theme}}/css/bootstrap.min.css' />
+		<link rel='stylesheet' href='/themes/{{theme}}/css/bootstrap-theme.min.css' />
+		<link rel='stylesheet' href='/themes/{{theme}}/css/style.css' />
+		<link rel="stylesheet" href="/themes/{{theme}}/css/prettify.css">
+		<link rel="stylesheet" href='/stylesheets/font-awesome.min.css' />
+		<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' type='text/css'>
+		<link rel="shortcut icon" href="/themes/{{theme}}/favicon.ico" />
+		<script src="/themes/{{theme}}/js/jquery.min.js"></script>
+		<script src="/javascripts/bootstrap-responsive_img.js"></script>
+		<!-- Open Graph meta -->
+		<meta property="og:title" content="{{config.blog_title}}"/>
+		<meta property="og:url" content="{{full_url}}"/>
+		<meta property="og:site_name" content="{{config.blog_title}}"/>
+		<meta property="og:type" content="article"/>
+		<!-- Open Graph meta -->
+		<!-- Google analytics -->
+		{{#if config.blog_google_analytics}}
+			{{{config.blog_google_analytics}}}
+		{{/if}}
+		<script>
+			$( document ).ready(function() {
+				$('#seo-options').collapse();
+			});
+		</script>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="row text-center orange">
+					
+					<!--	<img src="/themes/{{theme}}/images/logo.png" alt=""> -->
+					<p class="footer-sharelinks">
+							<a class="sharelink" href="{{config.blog_hostname}}/rss/feed.xml"><i class="fa fa-rss fa-lg"></i></a>
+							<a class="sharelink" href="https://www.facebook.com/sharer/sharer.php?u={{config.blog_hostname}}"><i class="fa fa-facebook fa-lg" style="padding:10px;"></i></a>
+							<a class="sharelink" href="https://twitter.com/home?status={{config.blog_hostname}}"><i class="fa fa-twitter fa-lg"></i></a>
+							<a class="sharelink" href="https://plus.google.com/share?url={{config.blog_hostname}}"><i class="fa fa-google-plus fa-lg"></i></a>
+						</p>
+					
+					
+                      <ul class="list-inline navigation_menu">
+						<!--	{{#each navigation}}
+								<li>
+									<a href="{{this.nav_link}}">{{this.nav_menu}}</a>
+
+								</li>
+								
+								<li class="navigation_menu_seporator"></li>
+							{{/each}} -->
+						    <li><a href="/">Home</a></li>
+							<li><a href="/About-me">About</a></li>
+							<li><a href="http://jelenapopovic.site/contact.html" target="_blank">Contact</a></li>
+						</ul>
+					
+						
+					</div>
+				<!--	<div class="intro-header">
+						<h4>something other here</h4>
+						<h1>Welcome to my Blog</h1><br>
+						<h5>something other here</h5>
+						
+					</div> -->
+					<div class="row welcome_header">
+						<div class="header-text">
+                           <h2>Welcome to my blog</h2><br>
+						     <p>I should also put some meaningful text here to welcome you all,
+								 but I still have no idea what I'm going to write.
+							 </p>
+							   <button>Read More</button>
+						</div>
+					<!--	<a href="/">
+							<img class="img-responsive" src="/themes/{{theme}}/images/header-img.jpg" alt="header"> -->
+								</div>
+							
+						</a>
+					</div>
+			</div>
+			<div class="container">
+               <div class="row">
+				   <div class="col-xs-12 col-md-8 col-lg-8">
+					   {{{body}}}
+					<div class="text-center">
+						<ul class="pagination pagination-sm pagination-xs pagination-lg">
+							{{#each pagination_array}}
+								{{{this}}}
+							{{/each}}
+						</ul>
+					</div>
+				   </div>
+				   <div class="col-md-3">
+					 <div class="thumbnail">
+						<img src="/themes/default/images/admin.png" class="">
+						<div class="caption">
+							<h4>Jelena Popovic</h4>
+							<p class="sub">web developer</p>
+							<p class="sub-text">Caffeine-driven organism. 99% unicorn. Analogue by birth, digital by design.</p> <br><!--<a href="#" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a>-->
+							<!--	<a href="#" class="btn btn-default btn-xs" role="button">More Info</a> -->
+							<p class="footer-sharelinks">
+							<a class="sharelink" href="{{config.blog_hostname}}/rss/feed.xml"><i class="fa fa-rss fa-lg"></i></a>
+							<a class="sharelink" href="https://www.facebook.com/sharer/sharer.php?u={{config.blog_hostname}}"><i class="fa fa-facebook fa-lg" ></i></a>
+							<a class="sharelink" href="https://twitter.com/home?status={{config.blog_hostname}}"><i class="fa fa-twitter fa-lg"></i></a>
+							<a class="sharelink" href="https://plus.google.com/share?url={{config.blog_hostname}}"><i class="fa fa-google-plus fa-lg"></i></a>
+						</p>
+
+                            </div>
+				      </div>
+					  <div class="categories">
+						  <h3>Categories</h3>
+						  <ul class="list-group">
+								<li class="list-group-item"><a href="#">Coding (2)</a></li>
+								<li class="list-group-item"><a href="#">Networking (1)</a></li>        
+								<li class="list-group-item"><a href="#">Web (1)</a></li>
+								<li class="list-group-item"><a href="#">Humor (1)</a></li>
+                          </ul>
+                     </div>
+			      </div>
+
+			</div>
+		<!--	<div class="col-xs-12 col-md-8 col-lg-8">
+				<div class="row">
+					
+					
+					{{{body}}}
+					<div class="text-center">
+						<ul class="pagination pagination-sm pagination-xs pagination-lg">
+							{{#each pagination_array}}
+								{{{this}}}
+							{{/each}}
+						</ul>
+					</div>
+				</div> -->
+				<div class="row">
+					<div class="text-center footer">
+						<p class="footer-copyright">Copyright &copy; {{current_year}} &middot; All Rights Reserved &middot; <a href="{{config.blog_hostname}}">{{config.blog_title}}</a></p>
+						<p class="footer-sharelinks">
+							<a class="sharelink" href="{{config.blog_hostname}}/rss/feed.xml"><i class="fa fa-rss fa-lg"></i></a>
+							<a class="sharelink" href="https://www.facebook.com/sharer/sharer.php?u={{config.blog_hostname}}"><i class="fa fa-facebook fa-lg"></i></a>
+							<a class="sharelink" href="https://twitter.com/home?status={{config.blog_hostname}}"><i class="fa fa-twitter fa-lg"></i></a>
+							<a class="sharelink" href="https://plus.google.com/share?url={{config.blog_hostname}}"><i class="fa fa-google-plus fa-lg"></i></a>
+						</p>
+					</div>
+				</div>
+				<script src="/themes/{{theme}}/js/bootstrap.min.js"></script>
+				<script src="/themes/{{theme}}/js/prettify.js"></script>
+				<script src="/themes/{{theme}}/js/func.js"></script>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,18 @@
+<div class="col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" style="padding-top: 100px">
+	{{#if message}}
+		<div class="alert alert-{{ message_type}} alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			{{message}}
+		</div>
+	{{/if}}
+
+	<form class="form-signin" action="action_login" method="post" role="form">
+		<h2 class="form-signin-heading">Please sign in</h2>
+		<input type="email" name="email_address" class="form-control" placeholder="Email address" value="" required autofocus>
+		<input type="password" name="password" class="form-control" placeholder="Password" value="" required>
+		<label class="checkbox">
+		  <input type="checkbox" value="remember-me"> Remember me
+		</label>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+	</form>
+</div>

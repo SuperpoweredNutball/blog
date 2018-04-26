@@ -1,0 +1,34 @@
+{{#each posts}}
+	<h5 class="text-muted text-center">{{custom_date this.post_date "dddd, MMMM do, YYYY"}}
+	{{#ifCond ../is_logged_on '===' 'true'}}
+		<a href="/admin/editor/{{this.post_id}}" class="glyphicon glyphicon-pencil edit-pencil"></a>
+	{{/ifCond}}
+	</h5>
+	<div class="row-title">
+		<h1 class="text-center">
+			<a class="post_title" href="/{{this.post_title_clean}}">{{this.post_title}}</a>
+		</h1>
+	</div>
+	<div class="row">
+		{{{this.post_body}}}
+	</div>
+	<div class="row row-title">
+		<p class="pull-left">
+			{{#each this.post_tags}}
+				<span class="tags"><a href="/tag/{{tag_encode this}}">{{this}}</a></span>
+				<span class="spacer">|</span>
+			{{/each}}
+		</p>
+	</div>
+	<div class="share" style="width:100%;">
+      <div class="button" style="float:left;">Read More</div>
+		<p class="footer-sharelinks" style="float:right;">
+			<a class="sharelink" href="{{config.blog_hostname}}/rss/feed.xml"><i class="fa fa-rss fa-lg"></i></a>
+			<a class="sharelink" href="https://www.facebook.com/sharer/sharer.php?u={{config.blog_hostname}}"><i class="fa fa-google-plus fa-lg" ></i></a>
+		</p>
+	</div>
+	
+	<div class="row" style="padding-top: 30px;">
+		<hr/>
+	</div>
+{{/each}}
